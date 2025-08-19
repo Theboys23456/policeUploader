@@ -18,6 +18,7 @@ def cut_first_10_seconds(input_file, output_file=None):
 
     return output_file if os.path.exists(output_file) else input_file
     
+    
 
 class Timer: #NIKHIL SAINI BOTS
     def __init__(self, time_between=5): #NIKHIL SAINI BOTS
@@ -117,4 +118,5 @@ async def progress_bar(current, total, reply, start): #NIKHIL SAINI BOTS
                  #await reply.edit(f'`╭━━━━❰ᴘʀᴏɢʀᴇss ʙᴀʀ❱━➣ \n┣⪼ ⚡{progress_bar} : {perc}\n┣⪼ 🚀 sᴘᴇᴇᴅ : {sp} \n┣⪼ 📟 ᴘʀᴏᴄᴇssᴇᴅ : {cur}\n┣⪼ 💾 sɪᴢᴇ- ᴇᴛᴀ :  {tot} : {eta} \n╰━⌈  𝘽𝙤𝙩 𝙈𝙖𝙙𝙚 𝙗𝙮 ❝𝐂𝐡𝐚𝐦𝐛𝐚𝐥 𝐇𝐢𝐭𝐥𝐞𝐫𝐬 ❥❥═══ ❤️:)™~⌋─━━➣`\n') 
             except FloodWait as e:
                 time.sleep(e.x)
+
 
