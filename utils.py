@@ -7,23 +7,26 @@ from vars import CREDIT #NIKHIL SAINI BOTS
 from pyrogram.errors import FloodWait #NIKHIL SAINI BOTS
 from datetime import datetime,timedelta #NIKHIL SAINI BOTS
 
-def cut_first_13_seconds(input_file, output_file=None):
-    import subprocess, os
-    if output_file is None:
-        temp_file = input_file + ".tmp.mp4"
-    else:
-        temp_file = output_file
+import subprocess, os
 
+def cut_first_13_seconds(input_file):
+    output_file = input_file  # overwrite karenge
+    temp_file = input_file + ".tmp.mp4"
+    
     cmd = [
-        "ffmpeg", "-ss", "13", "-i", input_file,
-        "-c:v", "libx264", "-c:a", "aac", "-y", temp_file
+        "ffmpeg", "-y",
+        "-ss", "13",
+        "-i", input_file,
+        "-c", "copy",
+        temp_file
     ]
-    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
-
+    subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    
+    # agar trim success hua to original replace karo
     if os.path.exists(temp_file):
-        os.replace(temp_file, input_file)  # पुरानी फाइल replace हो जाएगी
-        return input_file
-    return input_file
+        os.replace(temp_file, output_file)
+    return output_file
+    
     
     
 
@@ -125,6 +128,7 @@ async def progress_bar(current, total, reply, start): #NIKHIL SAINI BOTS
                  #await reply.edit(f'`╭━━━━❰ᴘʀᴏɢʀᴇss ʙᴀʀ❱━➣ \n┣⪼ ⚡{progress_bar} : {perc}\n┣⪼ 🚀 sᴘᴇᴇᴅ : {sp} \n┣⪼ 📟 ᴘʀᴏᴄᴇssᴇᴅ : {cur}\n┣⪼ 💾 sɪᴢᴇ- ᴇᴛᴀ :  {tot} : {eta} \n╰━⌈  𝘽𝙤𝙩 𝙈𝙖𝙙𝙚 𝙗𝙮 ❝𝐂𝐡𝐚𝐦𝐛𝐚𝐥 𝐇𝐢𝐭𝐥𝐞𝐫𝐬 ❥❥═══ ❤️:)™~⌋─━━➣`\n') 
             except FloodWait as e:
                 time.sleep(e.x)
+
 
 
 
