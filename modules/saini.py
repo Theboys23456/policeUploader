@@ -289,19 +289,20 @@ def decrypt_file(file_path, key):
                 mmapped_file[i] ^= ord(key[i]) if i < len(key) else i 
     return True  
 
-async def download_and_decrypt_video(url, cmd, name, key):
-    video_path = await download_video(url, cmd, name)
+async def download_and_decrypt_video(url, cmd, name, key=None):
+    video_path = await download_video(url, cmd, name)   # yt-dlp download karega
 
     if video_path:
-        decrypted = decrypt_file(video_path, key)
-        if decrypted:
-            print(f"File {video_path} decrypted successfully.")
-            # यहाँ cut_first_10_seconds call होगा
-            final_path = cut_first_13_seconds(decrypted)
-            return final_path
-        else:
-            print(f"Failed to decrypt {video_path}.")
-            return None
+        print(f"Video downloaded: {video_path}")
+        
+        # direct trim 13 seconds
+        final_path = cut_first_13_seconds(video_path)
+        print(f"Trimmed video saved: {final_path}")
+        return final_path
+    else:
+        print("Video download failed.")
+        return None
+        
             
 
 async def send_vid(bot: Client, m: Message, cc, filename, thumb, name, prog, channel_id):
