@@ -289,17 +289,20 @@ def decrypt_file(file_path, key):
                 mmapped_file[i] ^= ord(key[i]) if i < len(key) else i 
     return True  
 
-async def download_and_decrypt_video(url, cmd, name, key):  
-    video_path = await download_video(url, cmd, name)  
-    
-    if video_path:  
-        decrypted = decrypt_file(video_path, key)  
-        if decrypted:  
-            print(f"File {video_path} decrypted successfully.")  
-            return video_path  
-        else:  
-            print(f"Failed to decrypt {video_path}.")  
-            return None  
+async def download_and_decrypt_video(url, cmd, name, key):
+    video_path = await download_video(url, cmd, name)
+
+    if video_path:
+        decrypted = decrypt_file(video_path, key)
+        if decrypted:
+            print(f"File {video_path} decrypted successfully.")
+            # यहाँ cut_first_10_seconds call होगा
+            final_path = cut_first_10_seconds(decrypted)
+            return final_path
+        else:
+            print(f"Failed to decrypt {video_path}.")
+            return None
+            
 
 async def send_vid(bot: Client, m: Message, cc, filename, thumb, name, prog, channel_id):
     subprocess.run(f'ffmpeg -i "{filename}" -ss 00:00:10 -vframes 1 "{filename}.jpg"', shell=True)
