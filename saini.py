@@ -12,7 +12,7 @@ import tgcrypto
 import subprocess
 import concurrent.futures
 from math import ceil
-from utils import progress_bar, cut_first_10_seconds
+from utils import progress_bar, cut_first_13_seconds
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from io import BytesIO
@@ -258,7 +258,7 @@ async def download_video(url, cmd, name):
                 return name
 
         # ✂️ STEP 3: पहले 10 सेकंड कट करना
-        trimmed_file = cut_first_10_seconds(final_file)
+        trimmed_file = cut_first_13_seconds(final_file)
         return trimmed_file
 
     except FileNotFoundError as exc:
@@ -297,7 +297,7 @@ async def download_and_decrypt_video(url, cmd, name, key):
         if decrypted:
             print(f"File {video_path} decrypted successfully.")
             # यहाँ cut_first_10_seconds call होगा
-            final_path = cut_first_10_seconds(decrypted)
+            final_path = cut_first_13_seconds(decrypted)
             return final_path
         else:
             print(f"Failed to decrypt {video_path}.")
