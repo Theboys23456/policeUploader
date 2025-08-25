@@ -1677,7 +1677,7 @@ def reset_and_set_commands():
     requests.post(url, json={"commands": []})
     # Set new
     commands = [
-        {"command": "start", "description": "✅ Check Alive the Bot"},
+        {"command": "start", "description": "✅ STRANGER x python Alive this Bot Working properly"},
         {"command": "stop", "description": "🚫 Stop the ongoing process"},
         {"command": "broadcast", "description": "📢 Broadcast to All Users"},
         {"command": "broadusers", "description": "👨‍❤️‍👨 All Broadcasting Users"},
