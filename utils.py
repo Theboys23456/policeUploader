@@ -49,7 +49,7 @@ sent_stickers = {}  # Used to ensure only 1 sticker per chat
 
 styles = [  # [.. shortened for brevity .. include your full styles list here ..]
     {
-        "complete": "⚽️", "remain": "🏀",
+        "complete": "🟩", "remain": "⬜",
         "template": "<code>╭──⬇️ 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 ══╮\n🔋 [{bar}]\n📈 {perc} | 🚀 {sp}\n📦 {cur}/{tot}\n⏳ ETA: {eta}\n╰── {CREDIT}</code>"
     },
     {
@@ -65,7 +65,7 @@ styles = [  # [.. shortened for brevity .. include your full styles list here ..
         "template": "[ {bar} ]\n*Progress:* {perc}\n*Speed:* {sp}\n*Size:* {cur}/{tot}\n*ETA:* {eta}"
     },
     {
-        "complete": "⚽️", "remain": "🏀",
+        "complete": "🔰", "remain": "⚪",
         "template": "🇮🇳 <b>Bharatiya Stats</b>\n{bar}\n📊 Pragati: {perc}\n⚡ Raftar: {sp}\n🗃 Aakar: {cur}/{tot}\n🕐 Samay: {eta}"
     },
     {
@@ -98,7 +98,7 @@ styles = [  # [.. shortened for brevity .. include your full styles list here ..
         "template": "<b>🚀 Upload In Progress</b>\n[{bar}]\n✅ {perc}\n📤 Uploaded: {cur}/{tot}\n🕒 Time Left: {eta}"
     },
     {
-        "complete": "🎟", "remain": "🎫",
+        "complete": "🟫", "remain": "⬜",
         "template": "💠 <b>Data Transfer:</b>\n┌ {bar} ┐\n├ 📶 {perc} | 💾 {sp}\n├ 📁 {cur}/{tot}\n└ 🕐 ETA: {eta}"
     },
     {
@@ -118,7 +118,7 @@ styles = [  # [.. shortened for brevity .. include your full styles list here ..
         "template": "<b>🧠 Neural Sync</b>\n{bar}\n🎯 {perc} | ⚙️ {sp}\n📉 {cur}/{tot} | 🧭 ETA: {eta}"
     },
     {
-        "complete": "🎀", "remain": "🎁",
+        "complete": "■", "remain": "·",
         "template": "[DOWNLOADING]\n[{bar}]\nPROGRESS: {perc} | SPEED: {sp}\nSIZE: {cur}/{tot} | ETA: {eta}"
     },
     {
